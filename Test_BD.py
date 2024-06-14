@@ -1,6 +1,7 @@
 from multiprocessing import connection
 import pymysql
 import pymysql.cursors
+import numpy as np
 
 try:
 	connect = pymysql.Connect( #запрос к какому серверу
@@ -38,8 +39,13 @@ try:
 			cursor.close()
 			connect.close()
 
-			for i in data:
-				print(str(i))
+			al_data = [i['word'] for i in data]
+
+			chunks = np.array_split(al_data, len(al_data)//9)
+
+			f_list = ['\n'.join(i.tolist()) for i in chunks]
+
+			print(f_list) #будет выводить вариант удобный для перелистывания
 			
 		else: # вывод если нашлось что-то кроме букв
 			print("В введённом тексте есть число. Повторите попытку.")
