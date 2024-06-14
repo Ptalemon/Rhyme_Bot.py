@@ -34,8 +34,6 @@ try:
 				cursor.execute("SELECT word FROM adverbs WHERE word LIKE %s", ('%' + lkw))
 			elif type == 'patriciples':
 				cursor.execute("SELECT word FROM participles WHERE word LIKE %s", ('%' + lkw))
-			elif type == 'words':
-				cursor.execute("SELECT word FROM words WHERE word LIKE %s", ('%' + lkw))
 			data = cursor.fetchall()
 			cursor.close()
 			connect.close()
