@@ -5,7 +5,7 @@ from telebot import util
 import pymysql
 import telebot
 
-bot = telebot.TeleBot('6895605353:AAFHRHVWwOcXKE2bh4z2NrRvwmzuhYXbBmc')
+bot = telebot.TeleBot('')
 
 @bot.message_handler(func= lambda message: True) #тип получаемых сообщений
 
