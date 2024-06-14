@@ -18,10 +18,24 @@ try:
 	condition = kw.isalpha()
 	try:
 		if condition == True: #вывод информации с БД
-			kw = list(kw)
 			lkw = kw[-1]
 			cursor = connect.cursor()
-			cursor.execute("SELECT word FROM %s", (type),  "%s WHERE word LIKE %s", ('%' + lkw))
+			if type == 'nouns':
+				cursor.execute("SELECT word FROM nouns WHERE word LIKE %s", ('%' + lkw))
+			elif type == 'adjectives':
+				cursor.execute("SELECT word FROM adjectives WHERE word LIKE %s", ('%' + lkw))
+			elif type == 'adverbs':
+				cursor.execute("SELECT word FROM adverbs WHERE word LIKE %s", ('%' + lkw))
+			elif type == 'introductors':
+				cursor.execute("SELECT word FROM introductors WHERE word LIKE %s", ('%' + lkw))
+			elif type == 'nouns':
+				cursor.execute("SELECT word FROM nouns WHERE word LIKE %s", ('%' + lkw))
+			elif type == 'adverbs':
+				cursor.execute("SELECT word FROM adverbs WHERE word LIKE %s", ('%' + lkw))
+			elif type == 'patriciples':
+				cursor.execute("SELECT word FROM participles WHERE word LIKE %s", ('%' + lkw))
+			elif type == 'words':
+				cursor.execute("SELECT word FROM words WHERE word LIKE %s", ('%' + lkw))
 			data = cursor.fetchall()
 			cursor.close()
 			connect.close()
