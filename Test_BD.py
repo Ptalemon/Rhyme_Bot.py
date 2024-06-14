@@ -29,8 +29,6 @@ try:
 				cursor.execute("SELECT word FROM adverbs WHERE word LIKE %s", ('%' + lkw))
 			elif type == 'introductors':
 				cursor.execute("SELECT word FROM introductors WHERE word LIKE %s", ('%' + lkw))
-			elif type == 'nouns':
-				cursor.execute("SELECT word FROM nouns WHERE word LIKE %s", ('%' + lkw))
 			elif type == 'adverbs':
 				cursor.execute("SELECT word FROM adverbs WHERE word LIKE %s", ('%' + lkw))
 			elif type == 'patriciples':
